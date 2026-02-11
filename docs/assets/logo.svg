@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="800" y2="200" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6366f1"/>
+      <stop offset="100%" stop-color="#a78bfa"/>
+    </linearGradient>
+    <linearGradient id="hive" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="200" rx="16" fill="url(#bg)"/>
+  <rect width="800" height="200" rx="16" stroke="#334155" stroke-width="1" fill="none"/>
+
+  <!-- Hexagon grid (hive pattern) -->
+  <g opacity="0.08" stroke="#6366f1" stroke-width="1" fill="none">
+    <polygon points="60,60 80,48 100,60 100,84 80,96 60,84"/>
+    <polygon points="100,60 120,48 140,60 140,84 120,96 100,84"/>
+    <polygon points="80,96 100,84 120,96 120,120 100,132 80,120"/>
+    <polygon points="40,96 60,84 80,96 80,120 60,132 40,120"/>
+    <polygon points="120,96 140,84 160,96 160,120 140,132 120,120"/>
+    <polygon points="60,120 80,108 100,120 100,144 80,156 60,144"/>
+    <polygon points="100,120 120,108 140,120 140,144 120,156 100,144"/>
+    <polygon points="20,60 40,48 60,60 60,84 40,96 20,84"/>
+  </g>
+
+  <!-- Icon: hexagon with circuit lines -->
+  <g transform="translate(55, 55)" filter="url(#glow)">
+    <!-- Outer hexagon -->
+    <polygon points="45,0 90,26 90,78 45,104 0,78 0,26" fill="none" stroke="url(#accent)" stroke-width="2.5"/>
+    <!-- Inner hexagon -->
+    <polygon points="45,18 72,33 72,67 45,82 18,67 18,33" fill="url(#accent)" opacity="0.15"/>
+    <!-- Hive cell (center) -->
+    <polygon points="45,35 58,42 58,56 45,63 32,56 32,42" fill="url(#hive)" opacity="0.9"/>
+    <!-- Circuit lines -->
+    <line x1="45" y1="0" x2="45" y2="18" stroke="url(#accent)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="90" y1="52" x2="72" y2="50" stroke="url(#accent)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="0" y1="52" x2="18" y2="50" stroke="url(#accent)" stroke-width="1.5" opacity="0.6"/>
+    <line x1="45" y1="104" x2="45" y2="82" stroke="url(#accent)" stroke-width="1.5" opacity="0.6"/>
+    <!-- Circuit dots -->
+    <circle cx="45" cy="8" r="2.5" fill="#6366f1"/>
+    <circle cx="82" cy="50" r="2.5" fill="#6366f1"/>
+    <circle cx="8" cy="50" r="2.5" fill="#6366f1"/>
+    <circle cx="45" cy="94" r="2.5" fill="#6366f1"/>
+  </g>
+
+  <!-- Title text -->
+  <text x="185" y="88" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="38" font-weight="700" fill="#f1f5f9" letter-spacing="-0.5">
+    matrix-hive-driver
+  </text>
+
+  <!-- Subtitle -->
+  <text x="185" y="118" font-family="system-ui, -apple-system, 'Segoe UI', sans-serif" font-size="15" fill="#94a3b8" letter-spacing="0.5">
+    Governed Execution Driver for the Agent-Matrix Ecosystem
+  </text>
+
+  <!-- Badges area -->
+  <g transform="translate(185, 133)">
+    <!-- Version badge -->
+    <rect x="0" y="0" width="58" height="22" rx="4" fill="#1e1b4b"/>
+    <rect x="0" y="0" width="58" height="22" rx="4" stroke="#4338ca" stroke-width="0.5" fill="none"/>
+    <text x="29" y="15" font-family="monospace" font-size="10" fill="#a78bfa" text-anchor="middle">v0.1.0</text>
+
+    <!-- Python badge -->
+    <rect x="66" y="0" width="72" height="22" rx="4" fill="#1a2332"/>
+    <rect x="66" y="0" width="72" height="22" rx="4" stroke="#2563eb" stroke-width="0.5" fill="none"/>
+    <text x="102" y="15" font-family="monospace" font-size="10" fill="#60a5fa" text-anchor="middle">Python 3.10+</text>
+
+    <!-- FastAPI badge -->
+    <rect x="146" y="0" width="56" height="22" rx="4" fill="#042f2e"/>
+    <rect x="146" y="0" width="56" height="22" rx="4" stroke="#0d9488" stroke-width="0.5" fill="none"/>
+    <text x="174" y="15" font-family="monospace" font-size="10" fill="#5eead4" text-anchor="middle">FastAPI</text>
+
+    <!-- License badge -->
+    <rect x="210" y="0" width="76" height="22" rx="4" fill="#1c1917"/>
+    <rect x="210" y="0" width="76" height="22" rx="4" stroke="#78716c" stroke-width="0.5" fill="none"/>
+    <text x="248" y="15" font-family="monospace" font-size="10" fill="#a8a29e" text-anchor="middle">Apache-2.0</text>
+  </g>
+
+  <!-- Right side: flow arrows -->
+  <g transform="translate(590, 42)" opacity="0.7">
+    <!-- Architect box -->
+    <rect x="0" y="0" width="80" height="28" rx="6" fill="#1e1b4b" stroke="#4338ca" stroke-width="0.8"/>
+    <text x="40" y="18" font-family="monospace" font-size="9" fill="#a78bfa" text-anchor="middle">Architect</text>
+
+    <!-- Arrow down -->
+    <line x1="40" y1="28" x2="40" y2="42" stroke="#4338ca" stroke-width="1.2"/>
+    <polygon points="35,40 40,48 45,40" fill="#4338ca"/>
+
+    <!-- Driver box (this project) -->
+    <rect x="0" y="48" width="80" height="28" rx="6" fill="#422006" stroke="#f59e0b" stroke-width="0.8"/>
+    <text x="40" y="66" font-family="monospace" font-size="9" fill="#fbbf24" text-anchor="middle">Driver</text>
+
+    <!-- Arrow down -->
+    <line x1="40" y1="76" x2="40" y2="90" stroke="#f59e0b" stroke-width="1.2"/>
+    <polygon points="35,88 40,96 45,88" fill="#f59e0b"/>
+
+    <!-- Hive box -->
+    <rect x="0" y="96" width="80" height="28" rx="6" fill="#1a2332" stroke="#3b82f6" stroke-width="0.8"/>
+    <text x="40" y="114" font-family="monospace" font-size="9" fill="#60a5fa" text-anchor="middle">Hive</text>
+
+    <!-- Side labels -->
+    <text x="88" y="18" font-family="monospace" font-size="7" fill="#64748b">decides</text>
+    <text x="88" y="66" font-family="monospace" font-size="7" fill="#64748b">enforces</text>
+    <text x="88" y="114" font-family="monospace" font-size="7" fill="#64748b">executes</text>
+  </g>
+</svg>

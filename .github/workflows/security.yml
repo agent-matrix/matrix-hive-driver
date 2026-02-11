@@ -1,0 +1,19 @@
+name: Security
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: |
+          python -m pip install -U pip
+          pip install -e ".[dev]"
+          python -c "import matrix_hive_driver; print(matrix_hive_driver.__version__)"

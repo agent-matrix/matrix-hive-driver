@@ -1,0 +1,24 @@
+services:
+  hive-runtime:
+    # Replace with your pinned image digest in production
+    image: ghcr.io/agent-matrix/hive-runtime:PINNED_TAG
+    ports:
+      - "8080:8080"
+    environment:
+      - HIVE_LOG_LEVEL=info
+
+  matrix-hive-driver:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    ports:
+      - "7000:7000"
+    environment:
+      - DRIVER_HOST=0.0.0.0
+      - DRIVER_PORT=7000
+      - HIVE_ENDPOINT=http://hive-runtime:8080
+      - TOOL_PROXY_ENDPOINT=http://matrix-architect:9000/tool-proxy
+      - EVIDENCE_SINK=local
+      - LOG_LEVEL=info
+    depends_on:
+      - hive-runtime
