@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" fill="none">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="880" y2="520" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="520" rx="12" fill="url(#bg2)"/>
+
+  <!-- Title -->
+  <text x="440" y="36" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#e2e8f0" text-anchor="middle" letter-spacing="1">
+    MATRIX-HIVE-DRIVER — EXECUTION ARCHITECTURE
+  </text>
+  <line x1="140" y1="48" x2="740" y2="48" stroke="#334155" stroke-width="0.5"/>
+
+  <!-- ═══ ROW 1: External Services ═══ -->
+
+  <!-- Matrix AI -->
+  <g filter="url(#shadow)">
+    <rect x="30" y="68" width="150" height="60" rx="8" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.2"/>
+    <text x="105" y="94" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a78bfa" text-anchor="middle">Matrix AI</text>
+    <text x="105" y="112" font-family="monospace" font-size="9" fill="#64748b" text-anchor="middle">plans + reasoning</text>
+  </g>
+
+  <!-- Matrix Guardian -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="68" width="150" height="60" rx="8" fill="#14532d" stroke="#22c55e" stroke-width="1.2"/>
+    <text x="285" y="94" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#4ade80" text-anchor="middle">Guardian</text>
+    <text x="285" y="112" font-family="monospace" font-size="9" fill="#64748b" text-anchor="middle">policy grants</text>
+  </g>
+
+  <!-- Matrix Treasury -->
+  <g filter="url(#shadow)">
+    <rect x="390" y="68" width="150" height="60" rx="8" fill="#422006" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="465" y="94" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#fbbf24" text-anchor="middle">Treasury</text>
+    <text x="465" y="112" font-family="monospace" font-size="9" fill="#64748b" text-anchor="middle">budget grants</text>
+  </g>
+
+  <!-- Matrix Hub -->
+  <g filter="url(#shadow)">
+    <rect x="570" y="68" width="150" height="60" rx="8" fill="#1c1917" stroke="#78716c" stroke-width="1.2"/>
+    <text x="645" y="94" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#a8a29e" text-anchor="middle">Hub</text>
+    <text x="645" y="112" font-family="monospace" font-size="9" fill="#64748b" text-anchor="middle">artifact registry</text>
+  </g>
+
+  <!-- ═══ ROW 2: Matrix Architect ═══ -->
+  <g filter="url(#shadow)">
+    <rect x="130" y="170" width="620" height="80" rx="10" fill="#1e1b4b" stroke="#6366f1" stroke-width="1.5"/>
+    <!-- Title -->
+    <text x="440" y="198" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#c7d2fe" text-anchor="middle">
+      MATRIX ARCHITECT
+    </text>
+    <text x="440" y="216" font-family="monospace" font-size="10" fill="#818cf8" text-anchor="middle">
+      execution authority — decides what runs and when
+    </text>
+    <!-- Subcomponents -->
+    <rect x="145" y="225" width="90" height="18" rx="4" fill="#312e81"/>
+    <text x="190" y="237" font-family="monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Planner</text>
+    <rect x="245" y="225" width="90" height="18" rx="4" fill="#312e81"/>
+    <text x="290" y="237" font-family="monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">PolicyGate</text>
+    <rect x="345" y="225" width="90" height="18" rx="4" fill="#312e81"/>
+    <text x="390" y="237" font-size="8" font-family="monospace" fill="#a5b4fc" text-anchor="middle">Job Queue</text>
+    <rect x="445" y="225" width="90" height="18" rx="4" fill="#312e81"/>
+    <text x="490" y="237" font-family="monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Tool Proxy</text>
+    <rect x="545" y="225" width="90" height="18" rx="4" fill="#312e81"/>
+    <text x="590" y="237" font-family="monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">Storage</text>
+    <rect x="645" y="225" width="90" height="18" rx="4" fill="#312e81"/>
+    <text x="690" y="237" font-family="monospace" font-size="8" fill="#a5b4fc" text-anchor="middle">:8080</text>
+  </g>
+
+  <!-- Arrows: services → Architect -->
+  <line x1="105" y1="128" x2="250" y2="170" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+  <line x1="285" y1="128" x2="350" y2="170" stroke="#22c55e" stroke-width="1" opacity="0.5"/>
+  <line x1="465" y1="128" x2="440" y2="170" stroke="#f59e0b" stroke-width="1" opacity="0.5"/>
+  <line x1="645" y1="128" x2="600" y2="170" stroke="#78716c" stroke-width="1" opacity="0.5"/>
+
+  <!-- ═══ Arrow: Architect → Driver ═══ -->
+  <line x1="440" y1="250" x2="440" y2="290" stroke="#f59e0b" stroke-width="2"/>
+  <polygon points="434,286 440,296 446,286" fill="#f59e0b"/>
+  <text x="455" y="276" font-family="monospace" font-size="9" fill="#fbbf24">POST /runs</text>
+
+  <!-- ═══ ROW 3: matrix-hive-driver (THIS PROJECT) ═══ -->
+  <g filter="url(#shadow)">
+    <rect x="130" y="296" width="620" height="90" rx="10" fill="#422006" stroke="#f59e0b" stroke-width="1.5"/>
+    <text x="440" y="322" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#fde68a" text-anchor="middle">
+      MATRIX-HIVE-DRIVER
+    </text>
+    <text x="440" y="340" font-family="monospace" font-size="10" fill="#fbbf24" text-anchor="middle">
+      governed execution driver — enforces policy + budget, compiles PlanIR
+    </text>
+    <!-- Pipeline steps -->
+    <g transform="translate(148, 352)">
+      <rect x="0" y="0" width="86" height="22" rx="4" fill="#78350f"/>
+      <text x="43" y="15" font-family="monospace" font-size="8" fill="#fde68a" text-anchor="middle">1. Validate IR</text>
+
+      <line x1="86" y1="11" x2="96" y2="11" stroke="#92400e" stroke-width="1"/>
+      <polygon points="94,8 100,11 94,14" fill="#92400e"/>
+
+      <rect x="100" y="0" width="86" height="22" rx="4" fill="#78350f"/>
+      <text x="143" y="15" font-family="monospace" font-size="8" fill="#fde68a" text-anchor="middle">2. Policy</text>
+
+      <line x1="186" y1="11" x2="196" y2="11" stroke="#92400e" stroke-width="1"/>
+      <polygon points="194,8 200,11 194,14" fill="#92400e"/>
+
+      <rect x="200" y="0" width="86" height="22" rx="4" fill="#78350f"/>
+      <text x="243" y="15" font-family="monospace" font-size="8" fill="#fde68a" text-anchor="middle">3. Budget</text>
+
+      <line x1="286" y1="11" x2="296" y2="11" stroke="#92400e" stroke-width="1"/>
+      <polygon points="294,8 300,11 294,14" fill="#92400e"/>
+
+      <rect x="300" y="0" width="86" height="22" rx="4" fill="#78350f"/>
+      <text x="343" y="15" font-family="monospace" font-size="8" fill="#fde68a" text-anchor="middle">4. Compile</text>
+
+      <line x1="386" y1="11" x2="396" y2="11" stroke="#92400e" stroke-width="1"/>
+      <polygon points="394,8 400,11 394,14" fill="#92400e"/>
+
+      <rect x="400" y="0" width="86" height="22" rx="4" fill="#78350f"/>
+      <text x="443" y="15" font-family="monospace" font-size="8" fill="#fde68a" text-anchor="middle">5. Submit</text>
+
+      <line x1="486" y1="11" x2="496" y2="11" stroke="#92400e" stroke-width="1"/>
+      <polygon points="494,8 500,11 494,14" fill="#92400e"/>
+
+      <rect x="500" y="0" width="86" height="22" rx="4" fill="#78350f"/>
+      <text x="543" y="15" font-family="monospace" font-size="8" fill="#fde68a" text-anchor="middle">6. Evidence</text>
+    </g>
+  </g>
+
+  <!-- Tool Proxy return arrow -->
+  <path d="M 750 340 L 800 340 L 800 220 L 750 220" stroke="#818cf8" stroke-width="1" fill="none" stroke-dasharray="4,3" opacity="0.6"/>
+  <polygon points="753,217 748,220 753,223" fill="#818cf8" opacity="0.6"/>
+  <text x="810" y="284" font-family="monospace" font-size="8" fill="#818cf8" transform="rotate(90, 810, 284)" text-anchor="middle">tool proxy</text>
+
+  <!-- ═══ Arrow: Driver → Hive ═══ -->
+  <line x1="440" y1="386" x2="440" y2="420" stroke="#3b82f6" stroke-width="2"/>
+  <polygon points="434,416 440,426 446,416" fill="#3b82f6"/>
+
+  <!-- ═══ ROW 4: Hive Runtime ═══ -->
+  <g filter="url(#shadow)">
+    <rect x="230" y="426" width="420" height="70" rx="10" fill="#1a2332" stroke="#3b82f6" stroke-width="1.5"/>
+    <text x="440" y="454" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="#93c5fd" text-anchor="middle">
+      HIVE RUNTIME
+    </text>
+    <text x="440" y="472" font-family="monospace" font-size="10" fill="#60a5fa" text-anchor="middle">
+      durable workflow engine — executes graphs, retries, recovery
+    </text>
+    <!-- Features -->
+    <rect x="245" y="478" width="60" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="275" y="489" font-family="monospace" font-size="7" fill="#7dd3fc" text-anchor="middle">resume</text>
+    <rect x="312" y="478" width="52" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="338" y="489" font-family="monospace" font-size="7" fill="#7dd3fc" text-anchor="middle">retry</text>
+    <rect x="371" y="478" width="68" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="405" y="489" font-family="monospace" font-size="7" fill="#7dd3fc" text-anchor="middle">branching</text>
+    <rect x="446" y="478" width="60" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="476" y="489" font-family="monospace" font-size="7" fill="#7dd3fc" text-anchor="middle">HITL</text>
+    <rect x="513" y="478" width="68" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="547" y="489" font-family="monospace" font-size="7" fill="#7dd3fc" text-anchor="middle">evidence</text>
+    <rect x="588" y="478" width="52" height="14" rx="3" fill="#1e3a5f"/>
+    <text x="614" y="489" font-family="monospace" font-size="7" fill="#7dd3fc" text-anchor="middle">repair</text>
+  </g>
+
+  <!-- Port labels -->
+  <text x="60" y="215" font-family="monospace" font-size="9" fill="#475569">:8080</text>
+  <text x="60" y="345" font-family="monospace" font-size="9" fill="#475569">:7000</text>
+  <text x="60" y="465" font-family="monospace" font-size="9" fill="#475569">:8080</text>
+</svg>
