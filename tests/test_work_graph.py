@@ -15,14 +15,16 @@ def graph():
         "graph_id": "g1",
         "plan_id": "p1",
         "goal": "repair",
-        "nodes": [{
-            "node_id": "s1",
-            "capability": "fs.apply_patch",
-            "objective": "patch",
-            "depends_on": [],
-            "proof": {"success_criteria": ["tests pass"], "verifiers": ["pytest"]},
-            "risk": "medium",
-        }],
+        "nodes": [
+            {
+                "node_id": "s1",
+                "capability": "fs.apply_patch",
+                "objective": "patch",
+                "depends_on": [],
+                "proof": {"success_criteria": ["tests pass"], "verifiers": ["pytest"]},
+                "risk": "medium",
+            }
+        ],
     }
 
 
