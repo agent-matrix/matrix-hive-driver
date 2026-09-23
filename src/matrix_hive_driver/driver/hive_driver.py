@@ -22,12 +22,12 @@ from matrix_hive_driver.enforcement.policy_enforcer import (
 from matrix_hive_driver.enforcement.sandbox import normalize_workspace
 from matrix_hive_driver.evidence.collector import build_evidence_bundle
 from matrix_hive_driver.mapping.plan_ir_to_hive import compile_plan_ir_to_hive_graph
+from matrix_hive_driver.mapping.validators import validate_plan_ir
 from matrix_hive_driver.mapping.work_graph_to_hive import (
     assert_work_graph_policy,
     compile_work_graph_to_hive_graph,
     validate_work_graph,
 )
-from matrix_hive_driver.mapping.validators import validate_plan_ir
 from matrix_hive_driver.runtime.hive_client import HiveClient
 from matrix_hive_driver.storage.local_store import write_bytes
 
