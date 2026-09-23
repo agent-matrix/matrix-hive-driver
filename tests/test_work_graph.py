@@ -33,7 +33,7 @@ def grant(caps):
 def test_work_graph_compiles_verbatim_capability():
     validate_work_graph(graph())
     hive = compile_work_graph_to_hive_graph(graph())
-    assert hive["nodes"][0]["inputs"]["capability"] == "fs.apply_patch" or hive["nodes"][0].get("capability") == "fs.apply_patch"
+    assert hive["nodes"][0]["tool"] == "fs.apply_patch"
 
 
 def test_ungranted_capability_is_blocked():
