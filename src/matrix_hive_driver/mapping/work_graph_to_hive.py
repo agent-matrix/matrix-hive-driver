@@ -38,7 +38,9 @@ def validate_work_graph(graph: dict[str, Any]) -> None:
     for node in nodes:
         unknown = set(node.get("depends_on") or []) - ids
         if unknown:
-            raise DriverError(f"node {node['node_id']} depends on unknown nodes: {sorted(unknown)}")
+            raise DriverError(
+                f"node {node['node_id']} depends on unknown nodes: {sorted(unknown)}"
+            )
 
 
 def assert_work_graph_policy(graph: dict[str, Any], grant) -> None:
