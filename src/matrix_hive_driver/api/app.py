@@ -10,6 +10,7 @@ from matrix_hive_driver.api.schemas import (
     DriverEventModel,
     RunRequestModel,
     RunStatusModel,
+    WorkGraphRunRequestModel,
 )
 from matrix_hive_driver.driver.config import settings
 from matrix_hive_driver.driver.errors import (
@@ -58,6 +59,28 @@ def create_run(req: RunRequestModel) -> dict:
         )
         hive_run_id = driver.submit(rr)
         return {"run_id": hive_run_id, "trace": trace}
+    except (PolicyViolation, BudgetExceeded) as e:
+        raise HTTPException(status_code=403, detail=str(e)) from e
+    except (DriverRuntimeError, DriverError) as e:
+        raise HTTPException(status_code=500, detail=str(e)) from e
+
+
+@app.post("/v2/runs", response_model=dict)
+def create_workgraph_run(req: WorkGraphRunRequestModel) -> dict:
+    try:
+        pg = PolicyGrant(**req.policy_grant.model_dump())
+        bg = BudgetGrant(**req.budget_grant.model_dump())
+        trace = dict(req.trace or {})
+        trace.setdefault("matrix_run_id", str(uuid.uuid4()))
+        hive_run_id = driver.submit_work_graph(
+            work_graph=req.work_graph,
+            policy_grant=pg,
+            budget_grant=bg,
+            workspace=req.workspace,
+            trace=trace,
+            tenant=req.tenant,
+        )
+        return {"run_id": hive_run_id, "trace": trace, "input_contract": "work-graph-v1"}
     except (PolicyViolation, BudgetExceeded) as e:
         raise HTTPException(status_code=403, detail=str(e)) from e
     except (DriverRuntimeError, DriverError) as e:

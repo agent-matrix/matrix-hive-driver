@@ -23,6 +23,11 @@ from matrix_hive_driver.enforcement.sandbox import normalize_workspace
 from matrix_hive_driver.evidence.collector import build_evidence_bundle
 from matrix_hive_driver.mapping.plan_ir_to_hive import compile_plan_ir_to_hive_graph
 from matrix_hive_driver.mapping.validators import validate_plan_ir
+from matrix_hive_driver.mapping.work_graph_to_hive import (
+    assert_work_graph_policy,
+    compile_work_graph_to_hive_graph,
+    validate_work_graph,
+)
 from matrix_hive_driver.runtime.hive_client import HiveClient
 from matrix_hive_driver.storage.local_store import write_bytes
 
@@ -85,6 +90,39 @@ class HiveDriver:
             "hive_run_started",
             hive_run_id=hive_run_id,
             plan_id=req.plan_ir.get("plan_id"),
+        )
+        return hive_run_id
+
+    def submit_work_graph(
+        self,
+        *,
+        work_graph: dict,
+        policy_grant,
+        budget_grant,
+        workspace: dict,
+        trace: dict,
+        tenant: dict,
+    ) -> str:
+        """Execute Architect WorkGraph v1 without re-planning."""
+        validate_work_graph(work_graph)
+        assert_work_graph_policy(work_graph, policy_grant)
+        normalized_workspace = normalize_workspace(workspace)
+        graph = compile_work_graph_to_hive_graph(work_graph)
+        _ = BudgetMeter(budget_grant)
+        metadata = {
+            "matrix_run_id": trace.get("matrix_run_id", ""),
+            "policy_grant_id": policy_grant.grant_id,
+            "budget_grant_id": budget_grant.grant_id,
+            "tenant": tenant,
+            "workspace": normalized_workspace,
+            "work_graph_id": work_graph.get("graph_id", ""),
+        }
+        hive_run_id = self.hive.start(graph=graph, metadata=metadata)
+        log.info(
+            "hive_work_graph_started",
+            hive_run_id=hive_run_id,
+            graph_id=work_graph.get("graph_id"),
+            plan_id=work_graph.get("plan_id"),
         )
         return hive_run_id
 

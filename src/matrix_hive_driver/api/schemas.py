@@ -60,3 +60,12 @@ class DriverEventModel(BaseModel):
     level: str
     kind: str
     data: dict[str, Any] = Field(default_factory=dict)
+
+
+class WorkGraphRunRequestModel(BaseModel):
+    work_graph: dict[str, Any]
+    policy_grant: PolicyGrantModel
+    budget_grant: BudgetGrantModel
+    workspace: dict[str, Any] = Field(default_factory=dict)
+    trace: dict[str, str] = Field(default_factory=dict)
+    tenant: dict[str, str] = Field(default_factory=dict)
