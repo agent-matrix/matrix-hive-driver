@@ -29,7 +29,15 @@ def graph():
 
 
 def grant(caps):
-    return PolicyGrant(grant_id="pg", allowed_capabilities=caps)
+    return PolicyGrant(
+        grant_id="pg",
+        allowed_capabilities=caps,
+        forbidden_capabilities=[],
+        allowed_targets={},
+        approval_requirements={},
+        issued_at="2026-01-01T00:00:00Z",
+        expires_at="2027-01-01T00:00:00Z",
+    )
 
 
 def test_work_graph_compiles_verbatim_capability():
