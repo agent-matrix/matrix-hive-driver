@@ -3,6 +3,7 @@
 No planning occurs here. The capability selected by the approved plan is carried
 verbatim to the controlled Tool Proxy.
 """
+
 from __future__ import annotations
 
 from typing import Any
